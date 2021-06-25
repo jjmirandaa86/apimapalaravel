@@ -32,7 +32,7 @@ class RegionController extends Controller
             ->paginate(20);
     }
 
-    // GET DATA X CURRENCY
+    // GET DATA X PADRE COUNTRY
     //======================
     public function getDataXCountry($idCountry)
     {
@@ -61,12 +61,5 @@ class RegionController extends Controller
             ->where("idRegion", $idRegion);
         $Region->delete();
         return json_encode(['msg' => 'exito eliminación']);
-    }
-
-    // EDIT
-    //======================
-    public function editXIdRegion(Request $request, $idRegion)
-    {
-        return json_encode(['msg' => 'Metodo edit pendiente']);
     }
 }

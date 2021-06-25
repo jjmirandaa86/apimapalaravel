@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CountryController;
 use App\Http\Controllers\RegionController;
+use App\Http\Controllers\OfficeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,7 +23,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 //RUTAS DE APLICACION
-
 
 //Country
 //=====================================
@@ -42,3 +42,12 @@ Route::get('/region/name/{name}', [RegionController::class, 'getDataXName']);
 Route::get('/region/country/{idCountry}', [RegionController::class, 'getDataXCountry']);
 Route::post('/region', [RegionController::class, 'create']);
 Route::delete('/region/{idRegion}', [RegionController::class, 'destroyXIdRegion']);
+
+//Office
+//=====================================
+Route::get('/office/all', [OfficeController::class, 'all']);
+Route::get('/office/id/{idOffice}', [OfficeController::class, 'getDataXIdOffice']);
+Route::get('/office/name/{name}', [OfficeController::class, 'getDataXName']);
+Route::get('/office/region/{idRegion}', [OfficeController::class, 'getDataXRegion']);
+Route::post('/office', [OfficeController::class, 'create']);
+Route::delete('/office/{idOffice}', [OfficeController::class, 'destroyXIdOffice']);
