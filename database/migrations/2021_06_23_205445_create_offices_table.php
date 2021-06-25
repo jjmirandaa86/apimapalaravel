@@ -20,7 +20,7 @@ class CreateOfficesTable extends Migration
             $table->string('state', 1)->default('A');
             $table->timestamps();
 
-            $table->foreign('idRegion')->references('idRegion')->on('mapregion')
+            $table->foreign('idRegion')->references('idRegion')->on('regions')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });

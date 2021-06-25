@@ -20,7 +20,7 @@ class CreateRoutesTable extends Migration
             $table->string('state', 1)->default('A');
             $table->timestamps();
 
-            $table->foreign('idOffice')->references('idOffice')->on('mapoffice')
+            $table->foreign('idOffice')->references('idOffice')->on('offices')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });

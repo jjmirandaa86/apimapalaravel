@@ -16,7 +16,7 @@ class CountryController extends Controller
 
     // GET DATA X IDCOUNTRY
     //======================
-    public function getDataXIdCuntry($idCountry)
+    public function getDataXIdCountry($idCountry)
     {
         return Country::select("*")
             ->where("idCountry", $idCountry)
@@ -68,17 +68,21 @@ class CountryController extends Controller
     //======================
     public function editXIdCountry(Request $request, $idCountry)
     {
+        /*
+        $country = Country::where('idCountry', "=", $idCountry)
+            ->first();
+
         $country = Country::select("*")
             ->where("idCountry", $idCountry);
-        $country->fill($request->all());
-        /*
+
         $country->idCountry = $idCountry;
-        $country->name = $request->input('name');
         $country->currency = $request->input('currency');
         $country->state = $request->input('state');
-*/
+        //$country->created_at = null;
+        //$country->updated_at = null;
+        */
 
-        $country->save();
-        return json_encode(['msg' => 'exito modificacion' . $country->name]);
+        //$country->save();
+        return json_encode(['msg' => 'Metodo edit pendiente']);
     }
 }
