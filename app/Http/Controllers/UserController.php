@@ -104,9 +104,9 @@ class UserController extends Controller
 
     // LOGOUT
     //======================
-    public function logout($email)
+    public function logout(Request $request)
     {
-        $user = User::where("email", $email)
+        $user = User::where("email", $request->input('email'))
             ->first();
         //$user1 = auth()->user();
         $user->api_token = null;
