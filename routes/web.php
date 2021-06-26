@@ -36,5 +36,14 @@ Route::get('/api', function () {
     $texto = $texto . "</br> delete('/country/{idCountry}', [CountryController::class, 'destroyXIdCountry']);";
     $texto = $texto . '<h3>============================================================================<h3>';
 
+    $texto = $texto . '<h3>Region<h3>';
+    $texto = $texto . '<h3>============================================================================<h3>';
+    $texto = $texto . "      get('/region/all', [RegionController::class, 'all']);";
+    $texto = $texto . "</br> get('/region/id/{idRegion}', [RegionController::class, 'getDataXIdRegion']);";
+    $texto = $texto . "</br> get('/region/name/{name}', [RegionController::class, 'getDataXName']);";
+    $texto = $texto . "</br> get('/region/country/{idCountry}', [RegionController::class, 'getDataXCountry']);";
+    $texto = $texto . "</br> post('/region', [RegionController::class, 'create']);";
+    $texto = $texto . "</br> delete('/region/{idRegion}', [RegionController::class, 'destroyXIdRegion']);";
+    $texto = $texto . '<h3>============================================================================<h3>';
     return $texto;
 });
