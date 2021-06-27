@@ -5,8 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Route extends Model
+class UserRoute extends Model
 {
-    protected $primaryKey = 'idRoute';
+    //protected $primaryKey = ['idUser', 'idRoute'];
     use HasFactory;
 }

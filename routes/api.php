@@ -8,6 +8,8 @@ use App\Http\Controllers\RegionController;
 use App\Http\Controllers\OfficeController;
 use App\Http\Controllers\RouteController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\UserRouteController;
+use App\Http\Controllers\VisitController;
 
 /*
 |--------------------------------------------------------------------------
@@ -73,10 +75,33 @@ Route::group(['middleware' => 'auth:api'], function () {
     Route::delete('/user/{idUser}', [UserController::class, 'destroyXIdUser']);
     Route::delete('/user/{idUser}', [UserController::class, 'destroyXIdUser']);
     Route::post('/user/logout', [UserController::class, 'logout']);
+
+    //User_Routes
+    //=====================================
+    Route::get('/userroute/all', [UserRouteController::class, 'all']);
+    Route::get('/userroute/user/{idUser}', [UserRouteController::class, 'getUserRouteXidUser']);
+    Route::get('/userroute/route/{idRoute}', [UserRouteController::class, 'getUserRouteXidRoute']);
+    Route::post('/userroute', [UserRouteController::class, 'create']);
+
+    //Visit
+    //=====================================
+    Route::post('/visit/dates', [VisitController::class, 'getXVisitaDate']);
+    Route::post('/visit/route', [VisitController::class, 'getXIdRoute']);
+    Route::post('/visit/routedate', [VisitController::class, 'getXVisitDateidRoute']);
+    Route::post('/visit/routedatetype', [VisitController::class, 'getXVisitDateidRouteTypeVisit']);
 });
+
 
 
 //RUTAS DE APLICACION NO PROTEGIDAS PARA ACCESO A OPERAR
 //===================================================================
 Route::post('/user', [UserController::class, 'create']);
 Route::post('/user/validate', [UserController::class, 'login']); //Validar la clave este correcta
+
+
+//***************************************** */
+//***************************************** */
+// =====  SOLO PARA PRUEBAS, QUITAR EN PRD
+//***************************************** */
+//***************************************** */
+Route::get('/user/token/{idUser}', [UserController::class, 'getApiToken']); //Devuelve el token SOLO DESARROLLO

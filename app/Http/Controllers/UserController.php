@@ -53,6 +53,31 @@ class UserController extends Controller
         return $data;
     }
 
+    // GET DATA X TOKEN
+    //======================
+    public function getApiToken($idUser)
+    {
+        $user = User::select("*")
+            ->where("idUser", $idUser)
+            ->paginate(20);
+        $data = $user;
+        //Oculto datos que no quiero mostrar
+        $user = $user->makeHidden([
+            'firtsName',
+            'lastName',
+            'password',
+            'position',
+            'state',
+            'remember_token',
+            'created_at',
+            'updated_at'
+        ]);
+
+
+        $data->data = $user;
+        return $data;
+    }
+
     // CREATE
     //======================
     public function create(Request $request)

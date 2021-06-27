@@ -37,3 +37,5 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('users');
     }
 }
+
+//C:\Ampps\www\api_laravel
