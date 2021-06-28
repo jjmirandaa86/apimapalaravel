@@ -72,8 +72,6 @@ class UserController extends Controller
             'created_at',
             'updated_at'
         ]);
-
-
         $data->data = $user;
         return $data;
     }
@@ -118,9 +116,15 @@ class UserController extends Controller
             $user->api_token = Str::random(255);
             $user->save();
 
+            $user = $user->makeHidden([
+                'password',
+                'remember_token',
+                'created_at',
+                'updated_at',
+            ]);
             return json_encode([
                 'msg' => 'Login Exitoso',
-                'token' => $user->api_token,
+                'datos' => $user,
             ]);
         } else {
             return json_encode(['msg' => 'Email o contraseña invalida']);
